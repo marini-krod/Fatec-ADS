@@ -32,6 +32,7 @@ function preencher(dados) {
   $('barra').setAttribute('aria-label',
     `Memória usada: ${memoria.usada} de ${memoria.total} (${memoria.percentualUsado}%)`);
   $('rotulo-usada').textContent = `${memoria.usada} (${String(memoria.percentualUsado).replace('.', ',')}%)`;
+  $('legenda-usada').textContent = `${String(memoria.percentualUsado).replace('.', ',')}%`;
   $('rotulo-livre').textContent = memoria.livre;
   $('rotulo-total').textContent = memoria.total;
 
