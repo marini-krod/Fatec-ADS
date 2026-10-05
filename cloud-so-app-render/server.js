@@ -80,6 +80,8 @@ function coletarInformacoes() {
       tipo: os.type(),                    // Linux, Windows_NT, Darwin
       versaoKernel: os.release(),
       arquitetura: os.arch(),             // x64, arm64...
+      endianness: os.endianness(),
+      diretorioTemporario: os.tmpdir(),
       uptimeSegundos: os.uptime(),
       uptimeFormatado: formatarTempo(os.uptime()),
     },
@@ -113,6 +115,7 @@ function coletarInformacoes() {
       rssBytes: memProcesso.rss,
       heapUsado: formatarBytes(memProcesso.heapUsed),
       heapTotal: formatarBytes(memProcesso.heapTotal),
+      heapPercentual: Number(((memProcesso.heapUsed / memProcesso.heapTotal) * 100).toFixed(1)),
     },
     coletadoEm: new Date().toISOString(),
   };
