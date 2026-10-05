@@ -3,67 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>cloud-so-app — informações do sistema operacional</title>
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Painel de monitoramento do sistema operacional e do processo Node.js.">
+  <title>Cloud SO | Painel do sistema</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="fundo-decorativo" aria-hidden="true"></div>
   <main class="pagina">
+    <nav class="navegacao" aria-label="Navegação principal">
+      <a class="marca-app" href="#" aria-label="Cloud SO início">
+        <span class="marca-icone" aria-hidden="true">⌘</span>
+        <span>cloud<span class="marca-destaque">.so</span></span>
+      </a>
+      <div class="nav-direita">
+        <span class="indicador"><span class="ponto"></span> Monitoramento ao vivo</span>
+        <span class="versao">PAINEL 01</span>
+      </div>
+    </nav>
+
     <header class="topo">
-      <p class="ambiente" id="ambiente">Carregando ambiente…</p>
-      <h1 class="hostname" id="hostname">—</h1>
-      <p class="resumo" id="resumo">Lendo as informações do sistema operacional…</p>
+      <div class="topo-texto">
+        <p class="sobretitulo"><span class="linha-sobretitulo"></span> VISIBILIDADE DO SISTEMA</p>
+        <h1>Seu sistema.<br><span>Em detalhes.</span></h1>
+        <p class="resumo">Acompanhe os recursos da máquina hospedeira e do processo Node.js em um só lugar.</p>
+        <p class="ambiente" id="ambiente">Detectando ambiente…</p>
+      </div>
+      <div class="cartao-host">
+        <div class="host-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path><path d="m9 10 2 2 4-4"></path></svg></div>
+        <span class="rotulo-pequeno">HOST ATIVO</span>
+        <strong class="hostname" id="hostname">Aguardando dados…</strong>
+        <span class="host-legenda">Nome da máquina</span>
+        <div class="host-linha"></div>
+        <span class="host-status"><span class="ponto"></span> Conexão com a API</span>
+      </div>
     </header>
 
-    <section class="bloco" aria-labelledby="titulo-memoria">
-      <h2 id="titulo-memoria">Memória do sistema</h2>
-      <div class="barra" id="barra" role="img" aria-label="Uso de memória">
-        <div class="barra-usada" id="barra-usada"></div>
-        <div class="limite" id="limite" hidden><span id="rotulo-limite"></span></div>
+    <section class="secao memoria-secao" aria-labelledby="titulo-memoria">
+      <div class="secao-cabecalho">
+        <div>
+          <p class="sobretitulo">RECURSOS</p>
+          <h2 id="titulo-memoria">Memória do sistema</h2>
+        </div>
+        <span class="etiqueta">RAM</span>
       </div>
-      <div class="legenda">
-        <p><span class="marca usada"></span>Usada <strong id="rotulo-usada">—</strong></p>
-        <p><span class="marca livre"></span>Livre <strong id="rotulo-livre">—</strong></p>
-        <p>Total <strong id="rotulo-total">—</strong></p>
+      <div class="memoria-cartao">
+        <div class="memoria-resumo">
+          <div><span class="rotulo-pequeno">MEMÓRIA EM USO</span><p class="memoria-numero" id="rotulo-usada">—</p></div>
+          <div class="memoria-total"><span class="rotulo-pequeno">CAPACIDADE TOTAL</span><strong id="rotulo-total">—</strong></div>
+        </div>
+        <div class="barra" id="barra" role="img" aria-label="Uso de memória">
+          <div class="barra-usada" id="barra-usada"></div>
+          <div class="limite" id="limite" hidden><span id="rotulo-limite"></span></div>
+        </div>
+        <div class="legenda">
+          <p><span class="marca usada"></span>Memória usada <strong id="legenda-usada">—</strong></p>
+          <p><span class="marca livre"></span>Memória livre <strong id="rotulo-livre">—</strong></p>
+        </div>
+        <p class="nota" id="nota-memoria"></p>
       </div>
-      <p class="nota" id="nota-memoria"></p>
     </section>
 
-    <section class="bloco" aria-labelledby="titulo-sistema">
-      <h2 id="titulo-sistema">Sistema operacional hospedeiro</h2>
+    <section class="secao" aria-labelledby="titulo-sistema">
+      <div class="secao-cabecalho">
+        <div><p class="sobretitulo">INFRAESTRUTURA</p><h2 id="titulo-sistema">Sistema operacional</h2></div>
+        <span class="secao-numero">01</span>
+      </div>
       <dl class="fatos">
-        <div><dt>Nome do host</dt><dd id="f-hostname">—</dd></div>
-        <div><dt>Plataforma</dt><dd id="f-plataforma">—</dd></div>
-        <div><dt>Arquitetura</dt><dd id="f-arquitetura">—</dd></div>
-        <div><dt>Quantidade de CPUs</dt><dd id="f-cpus">—</dd></div>
-        <div><dt>Memória total</dt><dd id="f-memtotal">—</dd></div>
-        <div><dt>Memória livre</dt><dd id="f-memlivre">—</dd></div>
-        <div><dt>Tempo de atividade do sistema</dt><dd id="f-uptime">—</dd></div>
-        <div><dt>Modelo da CPU</dt><dd id="f-modelo">—</dd></div>
-        <div><dt>Carga média (1, 5 e 15 min)</dt><dd id="f-carga">—</dd></div>
+        <div><dt><span class="fato-icone">⌘</span>Nome do host</dt><dd id="f-hostname">—</dd></div>
+        <div><dt><span class="fato-icone">▣</span>Plataforma</dt><dd id="f-plataforma">—</dd></div>
+        <div><dt><span class="fato-icone">◇</span>Arquitetura</dt><dd id="f-arquitetura">—</dd></div>
+        <div><dt><span class="fato-icone">▦</span>Quantidade de CPUs</dt><dd id="f-cpus">—</dd></div>
+        <div><dt><span class="fato-icone">▤</span>Memória total</dt><dd id="f-memtotal">—</dd></div>
+        <div><dt><span class="fato-icone">▱</span>Memória livre</dt><dd id="f-memlivre">—</dd></div>
+        <div><dt><span class="fato-icone">◷</span>Tempo de atividade</dt><dd id="f-uptime">—</dd></div>
+        <div><dt><span class="fato-icone">⌁</span>Modelo da CPU</dt><dd id="f-modelo">—</dd></div>
+        <div><dt><span class="fato-icone">≋</span>Carga média (1, 5 e 15 min)</dt><dd id="f-carga">—</dd></div>
       </dl>
     </section>
 
-    <section class="bloco" aria-labelledby="titulo-processo">
-      <h2 id="titulo-processo">Este processo Node.js</h2>
+    <section class="secao" aria-labelledby="titulo-processo">
+      <div class="secao-cabecalho">
+        <div><p class="sobretitulo">RUNTIME</p><h2 id="titulo-processo">Processo Node.js</h2></div>
+        <span class="secao-numero">02</span>
+      </div>
       <dl class="fatos">
-        <div><dt>PID do processo</dt><dd id="p-pid">—</dd></div>
-        <div><dt>PID do processo pai</dt><dd id="p-ppid">—</dd></div>
-        <div><dt>Versão do Node.js</dt><dd id="p-node">—</dd></div>
-        <div><dt>Tempo de execução do processo</dt><dd id="p-uptime">—</dd></div>
-        <div><dt>Memória residente (RSS)</dt><dd id="p-rss">—</dd></div>
-        <div><dt>Heap usado / reservado</dt><dd id="p-heap">—</dd></div>
+        <div><dt><span class="fato-icone">#</span>PID do processo</dt><dd id="p-pid">—</dd></div>
+        <div><dt><span class="fato-icone">↳</span>PID do processo pai</dt><dd id="p-ppid">—</dd></div>
+        <div><dt><span class="fato-icone">⬡</span>Versão do Node.js</dt><dd id="p-node">—</dd></div>
+        <div><dt><span class="fato-icone">◷</span>Tempo de execução</dt><dd id="p-uptime">—</dd></div>
+        <div><dt><span class="fato-icone">▤</span>Memória residente (RSS)</dt><dd id="p-rss">—</dd></div>
+        <div><dt><span class="fato-icone">▥</span>Heap usado / reservado</dt><dd id="p-heap">—</dd></div>
       </dl>
     </section>
 
     <footer class="rodape">
-      <p id="status" aria-live="polite">Aguardando a primeira leitura.</p>
-      <button type="button" id="alternar">Pausar atualização</button>
+      <div class="rodape-status"><span class="ponto"></span><div><strong id="status" aria-live="polite">Conectando ao serviço…</strong><span class="rodape-legenda">Os dados são atualizados automaticamente.</span></div></div>
+      <button type="button" id="alternar"><span aria-hidden="true">Ⅱ</span> Pausar atualização</button>
     </footer>
+    <p class="credito">CLOUD SO <span>•</span> SISTEMAS OPERACIONAIS <span>•</span> FATEC</p>
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>
