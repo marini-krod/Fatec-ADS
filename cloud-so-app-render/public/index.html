@@ -22,6 +22,7 @@
  <article class="mini-card"><span class="mini-icone roxo">◫</span><div><small>MEMÓRIA USADA</small><strong id="r-memoria">—</strong><span id="r-memoria-sub">—</span></div></article>
  <article class="mini-card"><span class="mini-icone verde">◷</span><div><small>UPTIME DO HOST</small><strong id="r-uptime">—</strong><span>Sistema em execução</span></div></article>
  <article class="mini-card"><span class="mini-icone ambar">⬡</span><div><small>NODE.JS</small><strong id="r-node">—</strong><span>Runtime da aplicação</span></div></article>
+ <article class="mini-card mini-card-rede"><span class="mini-icone rede-icone">⌁</span><div><small>REDE / IPv4</small><strong id="r-rede-ip">—</strong><span id="r-rede-sub">Detectando interface…</span></div></article>
 </section>
 
 <section class="secao">
@@ -83,5 +84,12 @@
 <footer class="rodape"><div class="rodape-status"><span class="ponto"></span><div><strong id="status">Conectando ao serviço…</strong><span class="rodape-legenda">Dados atualizados automaticamente.</span></div></div><button type="button" id="alternar">Ⅱ Pausar atualização</button></footer>
 <p class="credito">CLOUD SO • SISTEMAS OPERACIONAIS • FATEC</p>
 </main>
+<aside class="barra-pesquisa" id="barra-pesquisa">
+ <div class="pesquisa-topo"><div><p class="sobretitulo">DICIONÁRIO</p><h2>O que é?</h2></div><span class="pesquisa-atalho">GUIA</span></div>
+ <label class="campo-pesquisa"><span>⌕</span><input id="pesquisa-conceito" type="search" placeholder="Ex.: PID, IPv4, Kernel..." autocomplete="off"></label>
+ <p class="pesquisa-dica">Pesquise os termos exibidos no painel.</p>
+ <div id="resultado-pesquisa" class="resultado-pesquisa"></div>
+ <div id="atalhos-conceitos" class="atalhos-conceitos"></div>
+</aside>
 <div class="modal" id="modal" hidden><div class="modal-card"><button id="fechar-modal" class="modal-fechar">×</button><h3 id="modal-titulo"></h3><p id="modal-texto"></p></div></div>
 <script src="app.js"></script></body></html>
