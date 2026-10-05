@@ -71,6 +71,22 @@ function coletarInformacoes() {
   const cpus = os.cpus();
   const limiteContainer = limiteDeMemoriaDoContainer(memoriaTotal);
   const memProcesso = process.memoryUsage();
+  const interfacesBrutas = os.networkInterfaces();
+  const interfaces = Object.entries(interfacesBrutas).flatMap(([nome, enderecos]) =>
+    (enderecos || []).map((item) => ({
+      nome,
+      endereco: item.address,
+      familia: item.family,
+      mascara: item.netmask,
+      mac: item.mac,
+      interna: item.internal,
+      cidr: item.cidr || null,
+      escopo: item.scopeid || null,
+    }))
+  );
+  const externas = interfaces.filter((item) => !item.interna);
+  const ipv4 = externas.find((item) => item.familia === 'IPv4') || interfaces.find((item) => item.familia === 'IPv4') || null;
+  const ipv6 = externas.find((item) => item.familia === 'IPv6') || interfaces.find((item) => item.familia === 'IPv6') || null;
 
   return {
     ambiente: detectarAmbiente(),
@@ -104,6 +120,22 @@ function coletarInformacoes() {
       percentualUsado: Number(((memoriaUsada / memoriaTotal) * 100).toFixed(1)),
       limiteContainerBytes: limiteContainer,
       limiteContainer: formatarBytes(limiteContainer),
+    },
+    rede: {
+      hostname: os.hostname(),
+      ipv4Principal: ipv4 ? ipv4.endereco : null,
+      ipv6Principal: ipv6 ? ipv6.endereco : null,
+      interfacePrincipal: ipv4 ? ipv4.nome : (ipv6 ? ipv6.nome : null),
+      macPrincipal: ipv4 ? ipv4.mac : (ipv6 ? ipv6.mac : null),
+      mascaraPrincipal: ipv4 ? ipv4.mascara : null,
+      interfaces,
+      quantidadeInterfaces: Object.keys(interfacesBrutas).length,
+      portaAplicacao: Number(PORT),
+      protocolo: detectarAmbiente().nome === 'Render' ? 'HTTPS (proxy) → HTTP (container)' : 'HTTP',
+      urlPublica: detectarAmbiente().url,
+      observacao: detectarAmbiente().nome === 'Render'
+        ? 'O endereço exibido pertence à rede interna do container. O acesso público é feito pelo proxy HTTPS do Render.'
+        : 'Endereços obtidos das interfaces de rede visíveis ao processo Node.js.',
     },
     processo: {
       pid: process.pid,
