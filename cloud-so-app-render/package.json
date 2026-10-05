@@ -1,0 +1,19 @@
+{
+  "name": "cloud-so-app",
+  "version": "1.0.0",
+  "description": "Aplicação Express que exibe informações do sistema operacional hospedeiro (atividade de Sistemas Operacionais - Fatec Itapetininga)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": ["express", "nodejs", "sistemas-operacionais", "render", "cloud"],
+  "author": "Marciel Silva",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

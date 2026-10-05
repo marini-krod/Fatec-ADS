@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cloud-so-app — informações do sistema operacional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="topo">
+      <p class="ambiente" id="ambiente">Carregando ambiente…</p>
+      <h1 class="hostname" id="hostname">—</h1>
+      <p class="resumo" id="resumo">Lendo as informações do sistema operacional…</p>
+    </header>
+
+    <section class="bloco" aria-labelledby="titulo-memoria">
+      <h2 id="titulo-memoria">Memória do sistema</h2>
+      <div class="barra" id="barra" role="img" aria-label="Uso de memória">
+        <div class="barra-usada" id="barra-usada"></div>
+        <div class="limite" id="limite" hidden><span id="rotulo-limite"></span></div>
+      </div>
+      <div class="legenda">
+        <p><span class="marca usada"></span>Usada <strong id="rotulo-usada">—</strong></p>
+        <p><span class="marca livre"></span>Livre <strong id="rotulo-livre">—</strong></p>
+        <p>Total <strong id="rotulo-total">—</strong></p>
+      </div>
+      <p class="nota" id="nota-memoria"></p>
+    </section>
+
+    <section class="bloco" aria-labelledby="titulo-sistema">
+      <h2 id="titulo-sistema">Sistema operacional hospedeiro</h2>
+      <dl class="fatos">
+        <div><dt>Nome do host</dt><dd id="f-hostname">—</dd></div>
+        <div><dt>Plataforma</dt><dd id="f-plataforma">—</dd></div>
+        <div><dt>Arquitetura</dt><dd id="f-arquitetura">—</dd></div>
+        <div><dt>Quantidade de CPUs</dt><dd id="f-cpus">—</dd></div>
+        <div><dt>Memória total</dt><dd id="f-memtotal">—</dd></div>
+        <div><dt>Memória livre</dt><dd id="f-memlivre">—</dd></div>
+        <div><dt>Tempo de atividade do sistema</dt><dd id="f-uptime">—</dd></div>
+        <div><dt>Modelo da CPU</dt><dd id="f-modelo">—</dd></div>
+        <div><dt>Carga média (1, 5 e 15 min)</dt><dd id="f-carga">—</dd></div>
+      </dl>
+    </section>
+
+    <section class="bloco" aria-labelledby="titulo-processo">
+      <h2 id="titulo-processo">Este processo Node.js</h2>
+      <dl class="fatos">
+        <div><dt>PID do processo</dt><dd id="p-pid">—</dd></div>
+        <div><dt>PID do processo pai</dt><dd id="p-ppid">—</dd></div>
+        <div><dt>Versão do Node.js</dt><dd id="p-node">—</dd></div>
+        <div><dt>Tempo de execução do processo</dt><dd id="p-uptime">—</dd></div>
+        <div><dt>Memória residente (RSS)</dt><dd id="p-rss">—</dd></div>
+        <div><dt>Heap usado / reservado</dt><dd id="p-heap">—</dd></div>
+      </dl>
+    </section>
+
+    <footer class="rodape">
+      <p id="status" aria-live="polite">Aguardando a primeira leitura.</p>
+      <button type="button" id="alternar">Pausar atualização</button>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
