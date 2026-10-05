@@ -54,8 +54,31 @@
  <div><dt>Uso do heap</dt><dd id="p-heap-percent">—</dd></div><div><dt>Status da aplicação</dt><dd class="online">● Online</dd></div></dl>
 </section>
 
+
+<section class="secao rede-secao">
+ <div class="secao-cabecalho"><div><p class="sobretitulo">CONECTIVIDADE</p><h2>Configuração de rede</h2></div><span class="secao-numero">03</span></div>
+ <div class="rede-resumo">
+   <article><small>INTERFACE PRINCIPAL</small><strong id="n-interface">—</strong><span>Interface de rede ativa</span></article>
+   <article><small>IPv4</small><strong id="n-ipv4">—</strong><span>Endereço visível no container</span></article>
+   <article><small>PORTA</small><strong id="n-porta">—</strong><span>Porta da aplicação</span></article>
+   <article><small>PROTOCOLO</small><strong id="n-protocolo">—</strong><span>Forma de acesso</span></article>
+ </div>
+ <dl class="fatos">
+   <div><dt>Hostname de rede <button class="ajuda" data-info="hostname">?</button></dt><dd id="n-hostname">—</dd></div>
+   <div><dt>IPv4 principal <button class="ajuda" data-info="ipv4">?</button></dt><dd id="n-ipv4-detalhe">—</dd></div>
+   <div><dt>IPv6 principal <button class="ajuda" data-info="ipv6">?</button></dt><dd id="n-ipv6">—</dd></div>
+   <div><dt>Máscara de rede <button class="ajuda" data-info="mascara">?</button></dt><dd id="n-mascara">—</dd></div>
+   <div><dt>Endereço MAC <button class="ajuda" data-info="mac">?</button></dt><dd id="n-mac">—</dd></div>
+   <div><dt>Interfaces detectadas</dt><dd id="n-qtd">—</dd></div>
+   <div><dt>Porta interna</dt><dd id="n-porta-detalhe">—</dd></div>
+   <div><dt>URL pública</dt><dd id="n-url">—</dd></div>
+ </dl>
+ <div class="interfaces-box"><div class="interfaces-titulo"><strong>Interfaces disponíveis</strong><span id="n-interface-count">—</span></div><div id="n-interfaces" class="interfaces-lista"><p>Carregando interfaces…</p></div></div>
+ <p class="nota rede-nota" id="n-observacao">Carregando informações de rede…</p>
+</section>
+
 <section class="secao conceitos"><div class="secao-cabecalho"><div><p class="sobretitulo">APRENDIZADO</p><h2>Conceitos de Sistemas Operacionais</h2></div><span class="etiqueta">GUIA</span></div>
-<div class="conceito-grid"><article><b>PID</b><p>Identificador único atribuído pelo sistema operacional a cada processo em execução.</p></article><article><b>Kernel</b><p>Núcleo do sistema operacional responsável por gerenciar hardware, memória e processos.</p></article><article><b>Heap</b><p>Área de memória dinâmica utilizada pelo processo Node.js para armazenar objetos.</p></article><article><b>Container</b><p>Ambiente isolado que compartilha o kernel do host e possui limites próprios de recursos.</p></article></div></section>
+<div class="conceito-grid"><article><b>PID</b><p>Identificador único atribuído pelo sistema operacional a cada processo em execução.</p></article><article><b>Kernel</b><p>Núcleo do sistema operacional responsável por gerenciar hardware, memória e processos.</p></article><article><b>Heap</b><p>Área de memória dinâmica utilizada pelo processo Node.js para armazenar objetos.</p></article><article><b>Container</b><p>Ambiente isolado que compartilha o kernel do host e possui limites próprios de recursos.</p></article><article><b>IPv4</b><p>Endereço usado para identificar uma interface na rede. No Render, normalmente representa a rede interna do container.</p></article><article><b>MAC</b><p>Identificador da interface de rede no enlace local. Em ambientes virtualizados pode pertencer a uma interface virtual.</p></article></div></section>
 
 <footer class="rodape"><div class="rodape-status"><span class="ponto"></span><div><strong id="status">Conectando ao serviço…</strong><span class="rodape-legenda">Dados atualizados automaticamente.</span></div></div><button type="button" id="alternar">Ⅱ Pausar atualização</button></footer>
 <p class="credito">CLOUD SO • SISTEMAS OPERACIONAIS • FATEC</p>
